@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Free Web</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+    <section class="hero">
+        <div class="badge">● ONLINE</div>
+
+        <h1>Welcome to<br><span>My Website</span></h1>
+
+        <p>
+            Website gratis yang berjalan di cloud,
+            bukan dari HP kamu.
+        </p>
+
+        <button onclick="document
+        .getElementById('chat')
+        .scrollIntoView({behavior:'smooth'})">
+            Mulai Chat
+        </button>
+    </section>
+
+    <section id="chat" class="chat-box">
+
+        <h2>🤖 Bot Assistant</h2>
+
+        <div id="messages">
+            <div class="bot">
+                Halo! 👋 Ada yang bisa saya bantu?
+            </div>
+        </div>
+
+        <div class="input">
+            <input id="message"
+                   placeholder="Tulis pesan...">
+
+            <button onclick="sendMessage()">
+                Kirim
+            </button>
+        </div>
+
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
