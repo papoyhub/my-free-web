@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Pesanan — NEXABOT Admin</title>
+
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+NEXA<span>BOT</span>
+</a>
+
+<ul class="nav-links">
+<li><a href="index.html">Dashboard</a></li>
+<li><a href="pesanan.html">Pesanan</a></li>
+<li><a href="produk.html">Produk</a></li>
+<li><a href="pelanggan.html">Pelanggan</a></li>
+</ul>
+
+<a href="../index.html" class="btn btn-outline">
+Lihat Toko
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="badge">
+ORDER MANAGEMENT
+</div>
+
+<h1>
+Kelola <span>Pesanan.</span>
+</h1>
+
+<p>
+Periksa pembayaran dan kelola status pengiriman bot pelanggan.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<small>PESANAN TERBARU</small>
+
+<h2>Daftar Pesanan</h2>
+
+<p>
+Contoh pesanan untuk rancangan panel admin.
+</p>
+
+</div>
+
+
+<div class="card" style="margin-bottom:18px">
+
+<div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+
+<div>
+
+<strong>#001</strong>
+
+<h3 style="margin-top:8px">
+Bot Confess
+</h3>
+
+<p>
+Pelanggan: Budi
+</p>
+
+<p>
+WhatsApp: 0856******57
+</p>
+
+</div>
+
+
+<div style="text-align:right">
+
+<div class="price">
+Rp25.000
+</div>
+
+<p style="color:#f0c674">
+⏳ Menunggu Pembayaran
+</p>
+
+</div>
+
+</div>
+
+
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+
+<a
+href="../pembayaran/index.html"
+class="btn btn-outline">
+
+Lihat Pembayaran
+
+</a>
+
+<button
+class="btn btn-primary"
+onclick="confirmPayment('001')">
+
+Konfirmasi Lunas
+
+</button>
+
+</div>
+
+<p
+id="status001"
+style="margin-top:14px;color:#00ff88;font-size:12px">
+</p>
+
+</div>
+
+
+<div class="card" style="margin-bottom:18px">
+
+<div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+
+<div>
+
+<strong>#002</strong>
+
+<h3 style="margin-top:8px">
+Bot Discord
+</h3>
+
+<p>
+Pelanggan: Andi
+</p>
+
+<p>
+WhatsApp: 0857******21
+</p>
+
+</div>
+
+
+<div style="text-align:right">
+
+<div class="price">
+Rp25.000
+</div>
+
+<p style="color:#00ff88">
+✓ Lunas
+</p>
+
+</div>
+
+</div>
+
+
+<div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
+
+<button
+class="btn btn-primary"
+onclick="sendOrder('002')">
+
+Tandai Sudah Dikirim
+
+</button>
+
+</div>
+
+<p
+id="status002"
+style="margin-top:14px;color:#00ff88;font-size:12px">
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap">
+
+<div>
+
+<strong>#003</strong>
+
+<h3 style="margin-top:8px">
+Bot Custom
+</h3>
+
+<p>
+Pelanggan: Sinta
+</p>
+
+<p>
+WhatsApp: 0858******43
+</p>
+
+</div>
+
+
+<div style="text-align:right">
+
+<div class="price">
+Rp50.000
+</div>
+
+<p style="color:#00ff88">
+✓ Selesai
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="banner">
+
+<h2>
+Alur Pesanan
+</h2>
+
+<p>
+Menunggu Pembayaran → Lunas → Bot Dikirim → Selesai
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-links">
+
+<a href="index.html">Dashboard</a>
+<a href="produk.html">Produk</a>
+<a href="pelanggan.html">Pelanggan</a>
+
+</div>
+
+© 2026 NEXABOT ADMIN
+
+</footer>
+
+</div>
+
+
+<script>
+
+function confirmPayment(id){
+
+const status =
+document.getElementById("status" + id);
+
+status.textContent =
+"✓ Pembayaran pesanan #" + id +
+" dikonfirmasi sebagai LUNAS.";
+
+}
+
+
+function sendOrder(id){
+
+const status =
+document.getElementById("status" + id);
+
+status.textContent =
+"✓ Pesanan #" + id +
+" ditandai sebagai SUDAH DIKIRIM.";
+
+}
+
+</script>
+
+</body>
+</html>
