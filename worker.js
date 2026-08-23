@@ -333,6 +333,7 @@ main{
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google-site-verification" content="nh2_62t68ElNTlZadt-iSI6-BJCP87-V8lKEhmmbVoI" />
 <title>My Free Web-website gratis</title>
 <meta name="description" content="My Free Web adalah website gratis dengan bot assistant dan berbagai fitur web.">
 <style>
