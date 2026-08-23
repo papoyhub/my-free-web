@@ -1,9 +1,9 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
 
     // =========================
-    // LOGIN
+    // LOGIN PAGE
     // =========================
     if (url.pathname === "/login" && request.method === "GET") {
       return new Response(`<!DOCTYPE html>
@@ -31,11 +31,10 @@ body{
   border-radius:22px;
   background:#ffffff0b;
   backdrop-filter:blur(15px);
-  box-shadow:0 20px 60px #0008;
 }
-h1{text-align:center;margin:0 0 8px}
-.sub{text-align:center;color:#aaa;margin-bottom:28px}
-label{display:block;margin:14px 0 7px;color:#ddd}
+h1{text-align:center}
+.sub{text-align:center;color:#aaa;margin-bottom:25px}
+label{display:block;margin:14px 0 7px}
 input{
   width:100%;
   padding:14px;
@@ -43,7 +42,6 @@ input{
   border-radius:12px;
   background:#080811;
   color:white;
-  outline:none;
 }
 button{
   width:100%;
@@ -54,17 +52,13 @@ button{
   background:#9b6cff;
   color:white;
   font-weight:bold;
-  font-size:15px;
 }
-.error{
-  padding:10px;
-  margin-bottom:15px;
-  border-radius:10px;
-  background:#ff3b3b22;
-  color:#ff9b9b;
+a{
+  display:block;
   text-align:center;
+  margin-top:20px;
+  color:#aaa;
 }
-a{display:block;text-align:center;margin-top:20px;color:#aaa}
 </style>
 </head>
 <body>
@@ -74,10 +68,10 @@ a{display:block;text-align:center;margin-top:20px;color:#aaa}
 
 <form method="POST" action="/login">
 <label>Username</label>
-<input name="username" placeholder="Username" required>
+<input name="username" required>
 
 <label>Password</label>
-<input type="password" name="password" placeholder="Password" required>
+<input type="password" name="password" required>
 
 <button type="submit">MASUK</button>
 </form>
@@ -93,7 +87,7 @@ a{display:block;text-align:center;margin-top:20px;color:#aaa}
     }
 
     // =========================
-    // PROSES LOGIN
+    // LOGIN PROCESS
     // =========================
     if (url.pathname === "/login" && request.method === "POST") {
       const form = await request.formData();
@@ -101,7 +95,7 @@ a{display:block;text-align:center;margin-top:20px;color:#aaa}
       const username = String(form.get("username") || "");
       const password = String(form.get("password") || "");
 
-      if (username === "admin" && password === "tokopow") {
+      if (username === "admin" && password === env.ADMIN_PASSWORD) {
         return new Response(null, {
           status: 302,
           headers: {
@@ -129,12 +123,11 @@ body{
   color:white;
   font-family:Arial;
 }
-.box{text-align:center}
 a{color:#a97cff}
 </style>
 </head>
 <body>
-<div class="box">
+<div style="text-align:center">
 <h2>❌ Login gagal</h2>
 <p>Username atau password salah.</p>
 <a href="/login">Coba lagi</a>
@@ -171,20 +164,37 @@ a{color:#a97cff}
 *{box-sizing:border-box}
 body{
   margin:0;
-  min-height:100vh;
   font-family:Arial,sans-serif;
   color:white;
-  background:radial-gradient(circle at top,#36206b,#090914 65%);
+  background:#090914;
 }
 header{
-  padding:20px;
+  padding:18px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#ffffff09;
-  border-bottom:1px solid #ffffff15;
+  background:#151122;
 }
-.logo{font-weight:bold}
+main{
+  width:min(1000px,92%);
+  margin:30px auto;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.card{
+  padding:22px;
+  border-radius:18px;
+  background:#ffffff0a;
+  border:1px solid #ffffff15;
+}
+.number{
+  font-size:30px;
+  font-weight:bold;
+  color:#a97cff;
+}
 .logout{
   padding:10px 15px;
   border-radius:10px;
@@ -192,37 +202,51 @@ header{
   color:white;
   text-decoration:none;
 }
-main{
-  width:min(900px,92%);
-  margin:40px auto;
-}
-.card{
-  padding:25px;
+.links{
   margin-top:20px;
-  border-radius:20px;
+  display:grid;
+  gap:12px;
+}
+.link{
+  padding:16px;
+  border-radius:12px;
   background:#ffffff0a;
-  border:1px solid #ffffff15;
+  color:white;
+  text-decoration:none;
 }
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">⚡ MY FREE WEB</div>
+<strong>⚡ MY FREE WEB ADMIN</strong>
 <a class="logout" href="/logout">Logout</a>
 </header>
 
 <main>
-<h1>Dashboard Admin</h1>
+<h1>Dashboard</h1>
+<p>Selamat datang, Admin 👋</p>
 
+<div class="grid">
 <div class="card">
-<h2>👋 Selamat datang, Admin</h2>
-<p>Login berhasil. Halaman admin kamu sekarang terlindungi.</p>
+<div>Website</div>
+<div class="number">ONLINE</div>
 </div>
 
 <div class="card">
-<h2>🤖 Bot Status</h2>
-<p>API Chat: <b>ONLINE</b></p>
+<div>Bot Assistant</div>
+<div class="number">ONLINE</div>
+</div>
+
+<div class="card">
+<div>Admin</div>
+<div class="number">1</div>
+</div>
+</div>
+
+<div class="links">
+<a class="link" href="/">🌐 Buka Website</a>
+<a class="link" href="/api/chat">🤖 Bot API</a>
 </div>
 
 </main>
@@ -338,7 +362,6 @@ p{color:#aaa8bb;line-height:1.7}
   padding:12px 15px;
   margin:10px 0;
   border-radius:14px;
-  line-height:1.5;
 }
 .bot{background:#251b3b}
 .user{
@@ -351,7 +374,6 @@ p{color:#aaa8bb;line-height:1.7}
 }
 input{
   flex:1;
-  min-width:0;
   padding:14px;
   border:1px solid #ffffff20;
   border-radius:12px;
@@ -452,13 +474,3 @@ document.getElementById("message").addEventListener("keydown",e=>{
     });
   }
 };
-
-
-
-
-
-
-
-
-
-
