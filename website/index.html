@@ -2,53 +2,289 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>My Free Web</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXABOT — Digital Bot Store</title>
+
+<link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
 
-<main>
-    <section class="hero">
-        <div class="badge">● ONLINE</div>
+<div class="container">
 
-        <h1>Welcome to<br><span>My Website</span></h1>
+<nav class="navbar">
 
-        <p>
-            Website gratis yang berjalan di cloud,
-            bukan dari HP kamu.
-        </p>
+<a href="index.html" class="logo">
+NEXA<span>BOT</span>
+</a>
 
-        <button onclick="document
-        .getElementById('chat')
-        .scrollIntoView({behavior:'smooth'})">
-            Mulai Chat
-        </button>
-    </section>
+<ul class="nav-links">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="produk.html">Produk</a></li>
+<li><a href="cara-beli.html">Cara Beli</a></li>
+<li><a href="ulasan.html">Ulasan</a></li>
+<li><a href="bantuan.html">Bantuan</a></li>
+</ul>
 
-    <section id="chat" class="chat-box">
+<a href="javascript:contactAdmin()" class="btn btn-outline">
+Chat Admin
+</a>
 
-        <h2>🤖 Bot Assistant</h2>
+</nav>
 
-        <div id="messages">
-            <div class="bot">
-                Halo! 👋 Ada yang bisa saya bantu?
-            </div>
-        </div>
 
-        <div class="input">
-            <input id="message"
-                   placeholder="Tulis pesan...">
+<section class="hero">
 
-            <button onclick="sendMessage()">
-                Kirim
-            </button>
-        </div>
+<div class="badge">
+DIGITAL BOT STORE
+</div>
 
-    </section>
-</main>
+<h1>
+Bangun Sistemmu<br>
+dengan <span>NEXABOT.</span>
+</h1>
 
-<script src="app.js"></script>
+<p>
+Temukan berbagai bot siap digunakan untuk WhatsApp,
+Confess, Discord, Telegram, atau pesan bot custom
+sesuai kebutuhanmu.
+</p>
+
+<div style="margin-top:25px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+
+<a href="produk.html" class="btn btn-primary">
+Lihat Produk
+</a>
+
+<a href="javascript:contactAdmin()" class="btn btn-outline">
+Hubungi Admin
+</a>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<small>KENAPA NEXABOT?</small>
+
+<h2>Simple. Cepat. Siap digunakan.</h2>
+
+<p>
+Kami membuat proses pembelian bot semudah mungkin.
+</p>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature">
+<strong>🤖 Pilihan Bot</strong>
+<p>
+Tersedia beberapa jenis bot untuk kebutuhan berbeda.
+</p>
+</div>
+
+<div class="feature">
+<strong>💰 Harga Terjangkau</strong>
+<p>
+Mulai dari Rp25.000 dengan pilihan custom Rp50.000.
+</p>
+</div>
+
+<div class="feature">
+<strong>📲 Pesan Mudah</strong>
+<p>
+Klik tombol produk dan langsung terhubung ke WhatsApp admin.
+</p>
+</div>
+
+<div class="feature">
+<strong>🛠️ Bantuan</strong>
+<p>
+Dapatkan panduan dan bantuan setelah pembelian.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<small>BOT STORE</small>
+
+<h2>Produk Terpopuler</h2>
+
+<p>
+Pilih bot yang sesuai dengan kebutuhanmu.
+</p>
+
+</div>
+
+
+<div class="products">
+
+
+<div class="card">
+
+<div class="icon">◉</div>
+
+<h3>Bot WhatsApp</h3>
+
+<p>
+Bot WhatsApp untuk otomatisasi chat dan berbagai kebutuhan.
+</p>
+
+<div class="price">
+Rp25.000
+</div>
+
+<a href="produk.html#whatsapp" class="btn btn-primary">
+Lihat Detail
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">◇</div>
+
+<h3>Bot Confess</h3>
+
+<p>
+Bot confess untuk menerima dan mengelola pesan secara otomatis.
+</p>
+
+<div class="price">
+Rp25.000
+</div>
+
+<a href="produk.html#confess" class="btn btn-primary">
+Lihat Detail
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">◈</div>
+
+<h3>Bot Discord</h3>
+
+<p>
+Bot Discord untuk command dan otomatisasi server.
+</p>
+
+<div class="price">
+Rp25.000
+</div>
+
+<a href="produk.html#discord" class="btn btn-primary">
+Lihat Detail
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">➤</div>
+
+<h3>Bot Telegram</h3>
+
+<p>
+Bot Telegram untuk command dan otomatisasi komunitas.
+</p>
+
+<div class="price">
+Rp25.000
+</div>
+
+<a href="produk.html#telegram" class="btn btn-primary">
+Lihat Detail
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✦</div>
+
+<h3>Bot Custom</h3>
+
+<p>
+Bot dibuat sesuai fitur dan kebutuhan yang kamu inginkan.
+</p>
+
+<div class="price">
+Rp50.000
+</div>
+
+<a href="produk.html#custom" class="btn btn-primary">
+Lihat Detail
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="banner">
+
+<h2>
+Butuh Bot yang Berbeda?
+</h2>
+
+<p>
+Ceritakan kebutuhanmu dan kami akan membantu
+menentukan solusi bot yang sesuai.
+</p>
+
+<a href="javascript:contactAdmin()" class="btn btn-primary">
+Konsultasi via WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-links">
+
+<a href="produk.html">Produk</a>
+<a href="cara-beli.html">Cara Beli</a>
+<a href="ulasan.html">Ulasan</a>
+<a href="bantuan.html">Bantuan</a>
+
+</div>
+
+© 2026 NEXABOT · Digital Bot Store
+
+</footer>
+
+</div>
+
+
+<script src="assets/app.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Ulasan — NEXABOT</title>
+
+<link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+NEXA<span>BOT</span>
+</a>
+
+<ul class="nav-links">
+<li><a href="index.html">Beranda</a></li>
+<li><a href="produk.html">Produk</a></li>
+<li><a href="cara-beli.html">Cara Beli</a></li>
+<li><a href="ulasan.html">Ulasan</a></li>
+<li><a href="bantuan.html">Bantuan</a></li>
+</ul>
+
+<a href="javascript:contactAdmin()" class="btn btn-outline">
+Chat Admin
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="badge">
+CUSTOMER REVIEWS
+</div>
+
+<h1>
+Ulasan <span>Pelanggan.</span>
+</h1>
+
+<p>
+Lihat pengalaman pelanggan dan berikan ulasan
+setelah menggunakan produk NEXABOT.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<small>REVIEWS</small>
+
+<h2>Apa kata pelanggan?</h2>
+
+<p>
+Beberapa contoh tampilan ulasan pelanggan.
+</p>
+
+</div>
+
+
+<div class="review-grid" id="reviewGrid">
+
+
+<div class="review">
+
+<div class="review-top">
+
+<strong>R***</strong>
+
+<span class="stars">
+★★★★★
+</span>
+
+</div>
+
+<p class="review-text">
+"Botnya mudah digunakan dan panduannya cukup jelas."
+</p>
+
+<span class="simulated">
+CONTOH ULASAN
+</span>
+
+<div class="reply">
+<b>NEXABOT</b><br>
+Terima kasih sudah menggunakan layanan kami! 💚
+</div>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-top">
+
+<strong>A***</strong>
+
+<span class="stars">
+★★★★★
+</span>
+
+</div>
+
+<p class="review-text">
+"Proses pesan lewat WhatsApp cepat dan admin responsif."
+</p>
+
+<span class="simulated">
+CONTOH ULASAN
+</span>
+
+<div class="reply">
+<b>NEXABOT</b><br>
+Terima kasih atas kepercayaannya! 💚
+</div>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-top">
+
+<strong>D***</strong>
+
+<span class="stars">
+★★★★☆
+</span>
+
+</div>
+
+<p class="review-text">
+"Bot sesuai dengan kebutuhan dan proses pembeliannya simpel."
+</p>
+
+<span class="simulated">
+CONTOH ULASAN
+</span>
+
+<div class="reply">
+<b>NEXABOT</b><br>
+Terima kasih atas masukannya! 💚
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-title">
+
+<small>YOUR REVIEW</small>
+
+<h2>Berikan Ulasan</h2>
+
+<p>
+Sudah menggunakan produk kami?
+Bagikan pengalamanmu.
+</p>
+
+</div>
+
+
+<div class="form-box">
+
+<label for="reviewName">
+Nama
+</label>
+
+<input
+type="text"
+id="reviewName"
+placeholder="Masukkan nama kamu"
+maxlength="40">
+
+
+<label for="reviewRating">
+Rating
+</label>
+
+<select id="reviewRating">
+
+<option value="5">★★★★★ — Sangat puas</option>
+<option value="4">★★★★☆ — Puas</option>
+<option value="3">★★★☆☆ — Cukup</option>
+<option value="2">★★☆☆☆ — Kurang</option>
+<option value="1">★☆☆☆☆ — Tidak puas</option>
+
+</select>
+
+
+<label for="reviewText">
+Ulasan
+</label>
+
+<textarea
+id="reviewText"
+placeholder="Tulis pengalaman kamu..."
+maxlength="500"></textarea>
+
+
+<button
+type="button"
+class="btn btn-primary"
+style="width:100%;margin-top:18px"
+onclick="sendReview()">
+
+Kirim Ulasan
+
+</button>
+
+
+<p
+id="reviewMessage"
+style="margin-top:12px;color:#00ff88;font-size:12px">
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="banner">
+
+<h2>
+Punya pertanyaan sebelum membeli?
+</h2>
+
+<p>
+Hubungi admin NEXABOT melalui WhatsApp.
+</p>
+
+<a
+href="javascript:contactAdmin()"
+class="btn btn-primary">
+Chat Admin
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer-links">
+
+<a href="index.html">Beranda</a>
+<a href="produk.html">Produk</a>
+<a href="cara-beli.html">Cara Beli</a>
+<a href="bantuan.html">Bantuan</a>
+
+</div>
+
+© 2026 NEXABOT · Digital Bot Store
+
+</footer>
+
+</div>
+
+
+<script src="assets/app.js"></script>
+
+</body>
+</html>
