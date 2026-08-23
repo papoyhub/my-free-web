@@ -1,10 +1,18 @@
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-if (url.pathname === "/robots.txt") {
+    if (url.pathname === "/robots.txt") {
+      return new Response(`User-agent: *
+Allow: /
+Sitemap: https://my-free-web.syhab338.workers.dev/sitemap.xml`, {
+        headers: {
+          "Content-Type": "text/plain"
+        }
+      });
+    }
 
-  return new
- Response(`<?xml version="1.0" encoding="UTF-8"?>
+    if (url.pathname === "/sitemap.xml") {
+      return new Response(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://my-free-web.syhab338.workers.dev/</loc>
@@ -13,19 +21,11 @@ if (url.pathname === "/robots.txt") {
     <loc>https://my-free-web.syhab338.workers.dev/login</loc>
   </url>
 </urlset>`, {
-    headers: {
-      "Content-Type": "application/xml"
+        headers: {
+          "Content-Type": "application/xml"
+        }
+      });
     }
-  });
-}
-  return new Response(`User-agent: *
-Allow: /
-Sitemap: https://my-free-web.syhab338.workers.dev/sitemap.xml`, {
-    headers: {
-      "Content-Type": "text/plain"
-    }
-  });
-}
     // =========================
     // LOGIN PAGE
     // =========================
