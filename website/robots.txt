@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /pembayaran/
+
+Sitemap: https://my-free-web.syhab338.workers.dev/sitemap.xml
