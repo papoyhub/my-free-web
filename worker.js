@@ -120,12 +120,14 @@ a{
       const password = String(form.get("password") || "");
 
       if (username === "admin" && password === env.ADMIN_PASSWORD) {
+        const sessionToken = crypto.randomUUID();
+
         return new Response(null, {
           status: 302,
           headers: {
             "Location": "/admin",
             "Set-Cookie":
-              "admin_session=1; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400"
+              `admin_session=${sessionToken}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=86400`
           }
         });
       }
@@ -178,7 +180,8 @@ a{color:#a97cff}
     ) {
       const cookie = request.headers.get("Cookie") || "";
 
-      if (!cookie.includes("admin_session=1")) {
+      const sessionMatch = cookie.match(/(?:^|;\s*)admin_session=([^;]+)/);
+      if (!sessionMatch || !sessionMatch[1]) {
         return Response.redirect(
           new URL("/login", request.url).toString(),
           302
@@ -195,7 +198,8 @@ a{color:#a97cff}
     if (url.pathname === "/admin" || url.pathname === "/admin/") {
       const cookie = request.headers.get("Cookie") || "";
 
-      if (!cookie.includes("admin_session=1")) {
+      const sessionMatch = cookie.match(/(?:^|;\s*)admin_session=([^;]+)/);
+      if (!sessionMatch || !sessionMatch[1]) {
         return Response.redirect(
           new URL("/login", request.url).toString(),
           302
