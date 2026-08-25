@@ -188,24 +188,22 @@ a{color:#a97cff}
         );
       }
 
-      // User sudah login: ambil halaman dari Cloudflare Assets
-      return env.ASSETS.fetch(request);
+      // User sudah login: ambil halaman admin dari Cloudflare Assets
+      const assetPath =
+        url.pathname === "/admin" || url.pathname === "/admin/"
+          ? "/admin/index.html"
+          : url.pathname;
+
+      const assetUrl = new URL(request.url);
+      assetUrl.pathname = assetPath;
+
+      return env.ASSETS.fetch(new Request(assetUrl.toString(), request));
     }
 
     // =========================
     // ADMIN DASHBOARD
     // =========================
-    if (url.pathname === "/admin" || url.pathname === "/admin/") {
-      const cookie = request.headers.get("Cookie") || "";
-
-      const sessionMatch = cookie.match(/(?:^|;\s*)admin_session=([^;]+)/);
-      if (!sessionMatch || !sessionMatch[1]) {
-        return Response.redirect(
-          new URL("/login", request.url).toString(),
-          302
-        );
-      }
-
+    if (false) {
       return new Response(`<!DOCTYPE html>
 <html lang="id">
 <head>
