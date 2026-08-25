@@ -326,6 +326,52 @@ main{
     }
 
     // =========================
+    // 404 UNTUK URL YANG TIDAK ADA
+    // =========================
+    const requestedPath = url.pathname.replace(/^\/+/, "");
+    const knownPages = [
+      "",
+      "index.html",
+      "produk.html",
+      "cara-beli.html",
+      "ulasan.html",
+      "bantuan.html",
+      "login"
+    ];
+
+    if (!knownPages.includes(requestedPath)) {
+      return new Response(`<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 — NEXABOT</title>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#090914;color:white;font-family:Arial,sans-serif;text-align:center}
+.box{width:min(500px,90%);padding:30px}
+h1{font-size:70px;margin:0}
+p{color:#aaa;line-height:1.6}
+a{display:inline-block;margin-top:15px;padding:12px 20px;border-radius:10px;background:#9b6cff;color:white;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>404</h1>
+<h2>Halaman Tidak Ditemukan</h2>
+<p>Halaman yang kamu cari tidak tersedia.</p>
+<a href="/">Kembali ke NEXABOT</a>
+</div>
+</body>
+</html>`, {
+        status: 404,
+        headers: {
+          "Content-Type": "text/html;charset=UTF-8"
+        }
+      });
+    }
+
+    // =========================
     // WEBSITE UTAMA
     // =========================
     return new Response(`<!DOCTYPE html>
