@@ -168,7 +168,7 @@ a{color:#a97cff}
     // =========================
     // ADMIN DASHBOARD
     // =========================
-    if (url.pathname === "/admin") {
+    if (url.pathname === "/admin" || url.pathname === "/admin/") {
       const cookie = request.headers.get("Cookie") || "";
 
       if (!cookie.includes("admin_session=1")) {
