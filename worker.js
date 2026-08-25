@@ -169,8 +169,8 @@ a{color:#a97cff}
     // PROTEKSI SEMUA HALAMAN ADMIN
     // =========================
     if (
-      url.pathname === "/admin/" ||
       url.pathname === "/admin" ||
+      url.pathname === "/admin/" ||
       url.pathname === "/admin/index.html" ||
       url.pathname === "/admin/pesanan.html" ||
       url.pathname === "/admin/produk.html" ||
@@ -184,6 +184,9 @@ a{color:#a97cff}
           302
         );
       }
+
+      // User sudah login: ambil halaman dari Cloudflare Assets
+      return env.ASSETS.fetch(request);
     }
 
     // =========================
