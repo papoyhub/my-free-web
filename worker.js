@@ -166,6 +166,27 @@ a{color:#a97cff}
     }
 
     // =========================
+    // PROTEKSI SEMUA HALAMAN ADMIN
+    // =========================
+    if (
+      url.pathname === "/admin/" ||
+      url.pathname === "/admin" ||
+      url.pathname === "/admin/index.html" ||
+      url.pathname === "/admin/pesanan.html" ||
+      url.pathname === "/admin/produk.html" ||
+      url.pathname === "/admin/pelanggan.html"
+    ) {
+      const cookie = request.headers.get("Cookie") || "";
+
+      if (!cookie.includes("admin_session=1")) {
+        return Response.redirect(
+          new URL("/login", request.url).toString(),
+          302
+        );
+      }
+    }
+
+    // =========================
     // ADMIN DASHBOARD
     // =========================
     if (url.pathname === "/admin" || url.pathname === "/admin/") {
